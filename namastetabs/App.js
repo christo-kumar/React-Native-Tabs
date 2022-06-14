@@ -17,26 +17,29 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+
 import { ImageHello } from './components/ImageHello';
 import { ListHello } from './components/ListHello';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-const Stack = createStackNavigator();
+//const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <Tab.Navigator>
+        <Tab.Screen
           name='Home'
           component={ImageHello}
         />
-        <Stack.Screen
+        <Tab.Screen
           name='List'
           component={ListHello}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
 
     </NavigationContainer>
   );
