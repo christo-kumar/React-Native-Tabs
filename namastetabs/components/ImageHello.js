@@ -2,6 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, Button, View, Image, ImageBackground } from 'react-native';
+import IconAntDesign from 'react-native-vector-icons/AntDesign';
 
 const styles = StyleSheet.create({
     container: {
@@ -82,6 +83,11 @@ export const ImageHello = ({ navigation }) => {
                 <Image
                     source={{ uri: 'https://images.freeimages.com/images/large-previews/76e/abstract-1-1174741.jpg' }}
                     style={styles.image}
+                />
+                <Text style={styles.text}> Font Icon: </Text>
+                <IconAntDesign
+                    name='stepforward'
+                    size={50}
                 />
             </ImageBackground>
         </SafeAreaView>

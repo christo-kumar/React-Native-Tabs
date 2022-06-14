@@ -21,6 +21,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { ImageHello } from './components/ImageHello';
 import { ListHello } from './components/ListHello';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import IconAntDesign from 'react-native-vector-icons/AntDesign';
 
 
 //const Stack = createStackNavigator();
@@ -30,7 +31,33 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, size, color }) => {
+            let iconName;
+            if (route.name === 'Home') {
+              iconName = 'stepforward';
+              size = focused ? 25 : 20;
+              color = focused ? '#f0f' : '#555';
+            } else if (route.name === 'List') {
+              iconName = 'stepbackward';
+              size = focused ? 25 : 20;
+              color = focused ? '#f0f' : '#555';
+            }
+            return (
+              <IconAntDesign
+                name={iconName}
+                size={size}
+                color={color}
+              />
+            );
+          }
+        })}
+        tabBarOptions={{
+          activeTintColor: '#f0f',
+          showLabel: false,
+        }}
+      >
         <Tab.Screen
           name='Home'
           component={ImageHello}
